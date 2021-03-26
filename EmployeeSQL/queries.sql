@@ -12,3 +12,14 @@ FROM employees as e
 ORDER BY e.emp_no;
 
 
+-- 2. list first name, last name, and hire dat for employees who were hired in 1986.
+
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date 
+    BETWEEN '1986-01-01' AND '1986-12-31';
+    
+    
+    
+
+
