@@ -16,7 +16,7 @@ ORDER BY e.emp_no;
 
 SELECT first_name, 
        last_name, 
-       hire_date
+	   hire_date
 FROM employees
 WHERE hire_date 
     BETWEEN '1986-01-01' AND '1986-12-31';
@@ -53,6 +53,15 @@ FROM employees AS e
 ORDER BY e.emp_no;
 
 
+-- 5. List first name, last name and sex for employees whose first name is "Hercules"
+--      and last name begins with "B"
+
+SELECT first_name, 
+       last_name,
+	   sex
+FROM employees
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
+        
 
 
 
@@ -64,6 +73,15 @@ ORDER BY e.emp_no;
 
 
 
+
+
+
+
+    INNER JOIN departments AS d
+        ON (dm.dept_no = d.dept_no)
+    INNER JOIN employees AS e
+        ON (dm.emp_no = e.emp_no);    
+    
     
     
 
