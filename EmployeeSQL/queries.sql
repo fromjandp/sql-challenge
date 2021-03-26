@@ -16,7 +16,7 @@ ORDER BY e.emp_no;
 
 SELECT first_name, 
        last_name, 
-       hire_date
+	   hire_date
 FROM employees
 WHERE hire_date 
     BETWEEN '1986-01-01' AND '1986-12-31';
@@ -60,15 +60,13 @@ ORDER BY e.emp_no;
 
 SELECT first_name, 
        last_name,
-       sex
+	   sex
 FROM employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
-
 
 -- 6. List all employees in the Sales department, including their employee number, 
 --      last name, first name, department name    
 --      (This code is using 'e' for the employees Table, 'd' : departments Table, de : dept_emp Table)
-
         
 SELECT  e.emp_no,
         e.last_name,
@@ -94,12 +92,22 @@ SELECT  e.emp_no,
 FROM employees AS e
     INNER JOIN dept_emp AS de
         ON (e.emp_no = de.emp_no)
-           INNER JOIN departments AS d
+		    INNER JOIN departments AS d
         ON (de.dept_no = d.dept_no)
 WHERE d.dept_name IN ('Sales', 'Development')
 ORDER BY e.emp_no;
 
 
+-- 8. In descending order, list the frequency count of employee last names,
+--     i.e. how many employees share each last name.
+
+
+SELECT last_name, COUNT(last_name)
+FROM employees
+GROUP by last_name
+ORDER BY COUNT(last_name) DESC;
+
+	
 
 
 
@@ -115,12 +123,7 @@ ORDER BY e.emp_no;
 
 
 
-    INNER JOIN departments AS d
-        ON (dm.dept_no = d.dept_no)
-    INNER JOIN employees AS e
-        ON (dm.emp_no = e.emp_no);    
-    
-    
-    
+
+
 
 
